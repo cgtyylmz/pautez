@@ -1,0 +1,206 @@
+% Eğer Tezinizi bu dosyada yazacaksanız "TEZİNİZİ BURADAN SONRA EKLEYİNİZ" bölümünden sonra ekeleyebilirsiniz. Özet ve Summary bölümleri /bolum klasörünün içindedir.
+
+\documentclass[]{esogu}			% Optionlar boş olacak, şablonu kullanmak için
+\usepackage{lipsum}				% Örnek tezde anlamsız metin yazmak için bu paket gerekli. Tezinizde bu bölümü silebilirsiniz.
+\usepackage{atbegshi} % İçindekiler, şekiller ve çizelgelerde birinci sayfadan sonraki sayfalara devam yazmak için
+\makeatletter
+\newcommand{\AtBeginShipoutClear}{\gdef\AtBegShi@Hook{}}
+\makeatother
+%\usepackage{glossaries}
+\bibliography{kaynakca.bib}		% Kaynakça dosyası için Bunu Zotero, Mendeley, Endnote ya da CiteU gibi bir programla oluşturmanızı tavsiye ederim. Zotero hakkında bilgi http://makina.gmay.me/Bulutta/ adresindeki ekitapta mevcut.
+
+
+%%%%%%%KISALTMALAR%%%%%%%%%%%%%%%%%%%
+%% Kısaltmalar için lütfen glossaries paketine bakınız.
+\newglossarystyle{mylong3col}{%
+  \setglossarystyle{long3colheader}%
+  \renewcommand\entryname{Simge veya Kısaltma}
+  \renewcommand\descriptionname{Tanım}
+  \renewcommand{\pagelistname}{Sayfa Numarası}
+  \renewenvironment{theglossary}%
+    {\begin{longtable}[l]{@{}lp{0.5\hsize}p{0.3\hsize}}}%
+    {\end{longtable}}%
+}
+
+
+\printglossaries
+
+\newacronym{OBEB}{OBEB}{Ortak Katların En Büyüğü}
+
+\newacronym{SWD}{SWD}{Serial Write Debug}
+\newacronym{OKEK}{OKEK}{Ortak Katların En Küçüğü}
+
+\newacronym{pi}{$\pi$}{$\pi$ sayısı}
+
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+\frontmatter %roma rakamları ile yazdırmak için
+\title{Pau Thesis}
+%-----Dış kapak Türkçe---------- Burayı değiştirmeyin
+\begin{titlingpage*}
+\begin{center}
+\large
+\textbf{\MakeUppercase{\uni}}
+
+\vspace{1pc}
+\textbf{\MakeUppercase{\fakulte}}
+
+\vspace{1pc}
+\textbf{\MakeUppercase{\bolum}}
+\vspace{2pc}
+
+%---------------bolum logosu-------------------------
+	\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.25\textwidth]{gorseller/image1}
+	\end{figure}
+	\vspace{2pc}
+  \Large
+	\textbf{\unvan\space BİTİRME TEZİ}\\
+  \vspace{1pc}							%12 punto boşluk ver
+  \normalsize
+\end{center}
+\begin{framed}
+\begin{center}
+\textbf{GÜÇ ELEKTRONİĞİ TABANLI \\MİKROİŞLEMCİLERİN PROGRAMLANMASI\\ VE VERİ AKTARIMI} %Daha toplu olmasi icin boyle yaptim
+\vspace{1pc}
+
+\yazar\\
+\vspace{1pc}
+
+\teslim\\
+\vspace{1pc}
+
+Tez Danışmanı:\hspace{10mm} \danisman
+\end{center}
+\end{framed}
+\end{titlingpage*}
+
+%---------------Tez kunyesi-----------------------
+
+\begin{table}[]
+\begin{tabular}{|l|l|}
+\hline
+\multicolumn{2}{|c|}{\textbf{TEZ KÜNYESİ}}      \\ \hline
+1. ARŞİV NUMARASI    & 2. SAVUNMA TARİHİ \\
+\hspace{10ex}       & \hspace{2ex}5 Eylül 2018    \\ \hline
+\multicolumn{2}{|l|}{4.TEZ BAŞLIĞI}    \\
+\multicolumn{2}{|p{14cm}|}{\hspace{2ex}\tbaslik}\\ \hline
+5.YAZAR              & 6.TEZ DANIŞMANI \\
+\hspace{2ex}\yazar   & \hspace{2ex}\danisman  \\ \hline
+\multicolumn{2}{|l|}{6.ÖZET}           \\
+\multicolumn{2}{|p{14cm}|}{\hangindent=2ex\hspace{2ex}\lipsum[1]}              \\ \hline
+7.ANAHTAR KELİMELER & 8.SAYFA SAYISI   \\
+\hspace{10pt}             & \hspace{10pt}  \\ \hline
+\end{tabular}
+\end{table}
+
+\clearpage
+%----------Onay-------------------------------------
+\thispagestyle{empty}
+\begin{center}
+\large
+\textbf{\MakeUppercase{\tbaslik}}\\
+\vspace{1pc}
+\yazar\\
+\vspace{1pc}
+\teslim\\
+\vspace{2pc}
+\end{center}
+\vspace{2pc}
+\normalsize
+Bu çalışma, jürimiz tarafından Elektrik-Elektronik Mühendisliği Bölümü’nde Lisans
+Bitirme Tezi olarak kabul edilmiştir.
+
+\vspace{20mm}
+
+\noindent \textbf{Tez Danışmanı:\hspace{5ex}\danisman}
+
+\hspace{20ex}\uni
+
+\hspace{20ex}\fakulte
+
+\hspace{20ex}\bolum
+\vspace{1pc}
+
+\noindent \textbf{Üye:\hspace{15ex}\jbir}
+
+\hspace{20ex}\uni
+
+\hspace{20ex}\fakulte
+
+\hspace{20ex}\bolum
+\vspace{1ex}
+
+\noindent \textbf{Üye:\hspace{15ex}\jiki}
+
+\hspace{20ex}\uni
+
+\hspace{20ex}\fakulte
+
+\hspace{20ex}\bolum
+\vspace{1pc}
+
+\noindent \textbf{Onaylayan:\hspace{9ex}\onay}
+
+\hspace{20ex}\uni
+
+\hspace{20ex}\fakulte
+
+\hspace{20ex}\bolum
+\newpage
+
+
+%-------------------Şekiller ve Çizelgeler Dizini----------------
+\renewcommand{\listfigurename}{ŞEKİLLER LİSTESİ}
+\renewcommand{\listtablename}{TABLOLAR LİSTESİ}
+
+\setlength\beforechapskip{-\baselineskip}
+
+\normalsize
+
+\include{bolum/ozet}
+\include{bolum/summary}
+\include{bolum/tesekkur}
+
+\AtBeginShipout{\protect\chapter*{İÇİNDEKİLER (Devam)}}
+\tableofcontents*
+\AtBeginShipoutClear
+\newpage
+\AtBeginShipout{\protect\chapter*{ŞEKİLLER LİSTESİ (Devam)}}
+\listoffigures
+\AtBeginShipoutClear
+\newpage
+\AtBeginShipout{\protect\chapter*{ÇİZELGELER LİSTESİ (Devam)}}
+\listoftables
+\AtBeginShipoutClear
+\clearpage
+
+\clearpage
+\printglossary[style=mylong3col, type=\acronymtype, title=Simgeler ve Kısaltmalar Listesi, toctitle=SİMGELER VE KISALTMALAR LİSTESİ]
+\clearpage
+
+
+\mainmatter %arap harfleri ile yazdırmak için
+% AltBölüm numaralaması
+\setcounter{secnumdepth}{5} % 5 derine kadar numara ver.
+%---------TEZİNİZİ BURADAN SONRA EKLEYİNİZ-----------------
+
+
+
+\include{bolum/giris}				% Metni dosyadan çağırmak için örnek
+\include{bolum/literatur}
+\include{bolum/bulgular}
+\input{bolum/sonuclar}
+
+\newpage
+
+\printbibliography[title={KAYNAKLAR\space DİZİNİ}] %numaralı olsun istersen optionlarda heading=bibnumbered, yaz
+\defbibheading{bibliography}[\refname]{%
+  \section*{#1}%
+  \markboth{\MakeUppercase{#1}}{\MakeUppercase{#1}}}
+
+\addcontentsline{toc}{chapter}{\textbf{Özgeçmiş}}   % Sadece doktora tezleri için
+
+\end{document}
