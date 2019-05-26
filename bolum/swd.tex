@@ -1,0 +1,18 @@
+\chapter{\arcfull{SWD}}
+
+Serial Wire Debug (SWD) is a 2-pin (SWDIO/SWCLK) electrical alternative JTAG interface that has the same JTAG protocol on top.
+SWD uses an ARM CPU standard bi-directional wire protocol, defined in the ARM Debug Interface v5.
+This enables the debugger to become another AMBA bus master for access to system memory and peripheral or debug registers.
+
+
+
+The Debug Access Port (DAP) is split into two main control units. The Debug Port (DP) and the Access Port (AP),
+and the physical connection to the debugger is part of the DP. The DAP supports two types of access,
+Debug Port (DP) accesses and Access Port (AP) accesses. External device to communicate directly with Serial Wire Debug Port
+(SW-DP) over SWDIO/SCLK pins. And SW-DP in turn can access one or several Access Ports (APs) the give access to the rest of
+the system. The MEM-AP is important AP which provide a way to access all memory
+and peripheral registers residing on the internal AHB/APB buses.
+
+\arcfull{SWD}, iki pin bağlantısı ile, JTAG arayüzüne alternatif olarak pin kısıtlaması olan mikrodenetleyiciler için geliştirilmiştir.
+SWD, ARM Debug Arayüzü v5
+
