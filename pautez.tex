@@ -6,7 +6,7 @@
 \makeatletter
 \newcommand{\AtBeginShipoutClear}{\gdef\AtBegShi@Hook{}}
 \makeatother
-%\usepackage{glossaries}
+\usepackage{glossaries}
 \bibliography{kaynakca.bib}		% Kaynakça dosyası için Bunu Zotero, Mendeley, Endnote ya da CiteU gibi bir programla oluşturmanızı tavsiye ederim. Zotero hakkında bilgi http://makina.gmay.me/Bulutta/ adresindeki ekitapta mevcut.
 
 
@@ -21,11 +21,17 @@
     {\begin{longtable}[l]{@{}lp{0.5\hsize}p{0.3\hsize}}}%
     {\end{longtable}}%
 }
-
-
-\printglossaries
+%
+%
+%\printglossaries
 
 \newacronym{OBEB}{OBEB}{Ortak Katların En Büyüğü}
+
+\newacronym{AMBA}{AMBA}{Advanced Microcontroller Bus Architecture}
+\newacronym{MEM-AP}{MEM-AP}{Memory Access Port}
+\newacronym{DAP}{DAP}{Debug Access Port}
+\newacronym{AP}{AP}{Access Port}
+\newacronym{DP}{DP}{Debug Port}
 
 \newacronym{SWD}{SWD}{Serial Write Debug}
 \newacronym{OKEK}{OKEK}{Ortak Katların En Küçüğü}
@@ -179,6 +185,8 @@ Bitirme Tezi olarak kabul edilmiştir.
 
 \clearpage
 \printglossary[style=mylong3col, type=\acronymtype, title=Simgeler ve Kısaltmalar Listesi, toctitle=SİMGELER VE KISALTMALAR LİSTESİ]
+
+\printglossary[style=mylong3col, type=\acronymtype]
 \clearpage
 
 
@@ -190,9 +198,9 @@ Bitirme Tezi olarak kabul edilmiştir.
 
 
 \include{bolum/giris}				% Metni dosyadan çağırmak için örnek
-\include{bolum/literatur}
-\include{bolum/bulgular}
-\input{bolum/sonuclar}
+\include{bolum/swd}
+%\include{bolum/bulgular}
+%\input{bolum/sonuclar}
 
 \newpage
 

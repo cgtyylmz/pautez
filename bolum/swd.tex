@@ -1,18 +1,54 @@
-\chapter{\arcfull{SWD}}
+\chapter{Seri Hat Hata Ayıklama Portu (SWD-DP)}
 
-Serial Wire Debug (SWD) is a 2-pin (SWDIO/SWCLK) electrical alternative JTAG interface that has the same JTAG protocol on top.
-SWD uses an ARM CPU standard bi-directional wire protocol, defined in the ARM Debug Interface v5.
-This enables the debugger to become another AMBA bus master for access to system memory and peripheral or debug registers.
+%Serial Wire Debug (SWD) is a 2-pin (SWDIO/SWCLK) electrical alternative JTAG interface that has the same JTAG protocol on top.
+%SWD uses an ARM CPU standard bi-directional wire protocol, defined in the ARM Debug Interface v5.
+%This enables the debugger to become another AMBA bus master for access to system memory and peripheral or debug registers.
+%
+%
+%
+%The Debug Access Port (DAP) is split into two main control units. The Debug Port (DP) and the Access Port (AP),
+%and the physical connection to the debugger is part of the DP. The DAP supports two types of access,
+%Debug Port (DP) accesses and Access Port (AP) accesses. External device to communicate directly with Serial Wire Debug Port
+%(SW-DP) over SWDIO/SCLK pins. And SW-DP in turn can access one or several Access Ports (APs) the give access to the rest of
+%the system. The MEM-AP is important AP which provide a way to access all memory
+%and peripheral registers residing on the internal AHB/APB buses.
+
+\acrfull{SWD}, iki pin bağlantısı ile, JTAG arayüzüne alternatif olarak, pin kısıtlaması olan mikrodenetleyiciler için geliştirilmiştir.
+ARM Hata Ayıklama Arayüzü v5 ile tanımlanmış olan SWD, hata ayıklma portu ile ARM işlmecisinin \acrshort{AMBA} veriyoluna erişim sağlar. Bu sayade
+işlmecinin sistem hafıza birimlerine, çevre birimlerinin ve sistem yazmaçlarına erişim sağlamaktadır.
+
+\acrfull{DAP}, Hata Ayıklma Portu (\acrshort{DP}) ve Erişim Portu (\acrshort{AP}) olmak üzere iki ana kontrol birimine arılmıştır. ARM işlecisine erişmek isteyen cihaz
+Seri Hat Hata Ayıklama Portu'nun SWDIO ve SCLK pinlerine fiziksel olarak bağlanaması gerekmektedir. SWD-DP ile sistemin geri kalan erişim ve hata ayıklama portuna erişim
+sağlamak mümkündür. \acrfull{MEM-AP}, dahili AHB/APB veriyollarına, hafıza elemanlarına ve çevre birimlerine erişim sağlayabilen en önemli erişim portudur.
+
+%---------------------------------- resim koy------------------------------------------------------------------
+
+\section{SWD Protokolü}
+
+SWD protokülü iki pin üzerinden (SWDIO-SCLK) hedef işlemcinin hata ayıklama portuna erişim sağlamaktadır. SWD'nin kullandığı iki pinden birisi olan SWDIO pini iki yönlü hat olup
+veri alış-verişinin yapıldığı veri hattır. Diğer pin olan (SCLK), iletişim için gerekli olan saat (clock) sinyalini barındıran sinyal hattıdır. Saat sinyali hattı servis sunucusu tarafından
+sağlanır.
+
+\section{SWD Baglatı ve Reset}
+
+Hedef cihazın Hata Ayıklama Portu'na fiziksel olarak bağlanıldıktan sonra, SWDIO pini lojik 1 seviyesine çekilerek SCLK hattından en az 50 puls verilmelidir. Bu işleme hat sıfırlama (Line Reset) adı verilir.
+ARM işlemcisinide bulunan SWD Hata Ayıklama portunu seçmek için hat sıfırlama işleminden sonra onaltı bitlik "0xE79E" verisi, veri hattından saat sinyali ile birlikte gönderilir. Ardından
+işlemcinin 'IDCODE' yazmacı okunur. Eğer okunan yazmaç değeri doğru ise SWD protoklü başarılı bir şekilde başlamış demektir.
+
+\section{Veri Göndeme ve Alma Süreçleri}
+
+SWD protokolü kullanarak . Bunlar;
+\begin{itemize}
+	\item İstek Fazı: Servis Sunucusu 8 bitlik istek paketini hedef cihaza gönderir.
+	\item Doğrulama Fazı: Hedef cihaz 3 bitlik doğrulama kodunu servis sunucusuna gönderir.
+	\item Veri Fazı: İstek fazında bulunan okuma-yazma isteğine bağlı olarak hedef cihaz yada sunucu cihaz 33 bitlik veriyi veri hattından gönderir.
+\end{itemize}
+
+%---------------------------- RESIM KOY pulsler ve data olan----------------------------------------------------------------
+
+\subsection{İstek Fazı}
+
+\subsubsection{DEneme}
 
 
-
-The Debug Access Port (DAP) is split into two main control units. The Debug Port (DP) and the Access Port (AP),
-and the physical connection to the debugger is part of the DP. The DAP supports two types of access,
-Debug Port (DP) accesses and Access Port (AP) accesses. External device to communicate directly with Serial Wire Debug Port
-(SW-DP) over SWDIO/SCLK pins. And SW-DP in turn can access one or several Access Ports (APs) the give access to the rest of
-the system. The MEM-AP is important AP which provide a way to access all memory
-and peripheral registers residing on the internal AHB/APB buses.
-
-\arcfull{SWD}, iki pin bağlantısı ile, JTAG arayüzüne alternatif olarak pin kısıtlaması olan mikrodenetleyiciler için geliştirilmiştir.
-SWD, ARM Debug Arayüzü v5
 

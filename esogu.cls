@@ -195,7 +195,7 @@
 \renewcommand{\cftsectionaftersnum}{.}
 \renewcommand{\cftsubsectionaftersnum}{.}
 \renewcommand{\cftsubsubsectionaftersnum}{.}
-\renewcommand{\cftsubsubsectionfont}{\underline}
+\renewcommand{\secheadstyle}{\normalfont\bfseries}
 \renewcommand{\subsubsecheadstyle}{\noindent\bfseries\underline}
 
 }
