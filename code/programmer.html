@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Programmer</title>
+</head>
+<body>
+<center>
+
+	<!--===============================Buttons================================-->
+		<div class="w3-card-2">
+			<header class="w3-container w3-teal">
+				<h1>SWD Read/Write Data & Debug</h1>
+			</header>
+			<br>
+			<p>
+				<button class="w3-button w3-xlarge w3-ripple w3-teal" onclick="debug('Status', '/api/begin')">Begin</button>
+				<button class="w3-button w3-xlarge w3-ripple w3-teal" onclick="debug('Status', 'api/halt' )">Debug Halt</button><br>
+			</p>
+				<button class="w3-button w3-xlarge w3-ripple w3-teal" onclick="debug('Status', 'memWrite?addr=0xe000edf0&data=0xa05f0001')">Run</button>
+				<button class="w3-button w3-xlarge w3-ripple w3-teal" onclick="debug('Status', 'memWrite?addr=0xe000edf0&data=0xa05f0003')">Stop</button><br>
+			<p>
+				<button class="w3-button w3-xlarge w3-ripple w3-teal" onclick="debug('Status', 'memWrite?addr=0xE000ED0C&data=0x05fa0004')">Reset</button><br><br>
+				<span class="w3-sand" id="Status" type="text" style="visibility:hidden;">test</span><br>
+			</p>
+			
+		</div>
+
+	<!--===============================File Upload================================-->
+	<div class="w3-card-4">
+		<div class="w3-container w3-indigo">
+		<h2>File Upload</h2>
+		</div>
+		<p>      
+		<form class="w3-container">
+			<input class="w3-button w3-indigo" type='file' name='fupload' id = 'fileSelect' value=''><br><br>
+			<input type="button" class="w3-btn w3-indigo" onclick="doSubmit()" value="Upload"><br><br>
+		</form>
+		<span class="w3-xlarge w3-text-blue w3-animate-opacity" id="fileStat">Select file...</span><br><br>
+		</p>
+	</div>
+	<!--===============================Flash Program================================-->
+
+	<div class="w3-card-4">
+			<div class="w3-container w3-red">
+				<h2>File List and Erase</h2>
+			</div>
+
+			<h4>File list:</h4>
+			<select class="w3-sand w3-text-blue w3-center w3-xlarge w3-border w3-border-red" id="fileSelect_pr" style="width: 50%;" size="4">
+			</select><br><br>
+			<button class="w3-btn w3-red" onclick="listFs('bin')">List file <i class="material-icons">refresh</i></button><br><br>
+			<button class="w3-btn w3-red" onclick="flash(document.getElementById('fileSelect_pr').value)">Flash Program</button><br><br>
+			<span id="statusFlash" class="w3-green"></button><br><br><br>
+				
+		</div>
+</center>
+</body>
+</html>

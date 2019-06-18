@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Data Logger</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="w3.css">
+    <script src="/script.js" type="text/javascript"></script>
+    
+</head> 
+
+<body> 
+      <center>
+        <h1>Serial Data Logger</h1>
+    <div id="chart_div"></div>
+    <div id="loading" style="visibility: hidden;">Loading ...</div>
+    <button onclick="loadCSV()">Load</button><br>
+        <div id="dateselect" style="visibility: hidden;">
+            <div id="date" style="visibility: hidden;"></div>
+            <br>
+            <input type="checkbox" id="myCheck" onclick="setAuto()"> Auto Slide
+             
+            <br>
+            <button id="prev" onclick="prev()">&lt;</button>
+            <button id="next" onclick="next()">&gt;</button><br>
+            <button id="zoomout" onclick="zoomout()">-</button>
+            <button id="zoomin" onclick="zoomin()">+</button><br>
+            <button id="reset" onclick="reset()" style="width: 7em;">Reset</button><br>
+            <button id="refresh" onclick="refresh()" style="width: 7em;">Refresh</button>
+        </div>
+      </center>
+     
+</body>
+
+</html>

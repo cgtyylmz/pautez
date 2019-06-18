@@ -1,13 +1,42 @@
 % Eğer Tezinizi bu dosyada yazacaksanız "TEZİNİZİ BURADAN SONRA EKLEYİNİZ" bölümünden sonra ekeleyebilirsiniz. Özet ve Summary bölümleri /bolum klasörünün içindedir.
 
+
 \documentclass[]{esogu}			% Optionlar boş olacak, şablonu kullanmak için
 \usepackage{lipsum}				% Örnek tezde anlamsız metin yazmak için bu paket gerekli. Tezinizde bu bölümü silebilirsiniz.
 \usepackage{atbegshi} % İçindekiler, şekiller ve çizelgelerde birinci sayfadan sonraki sayfalara devam yazmak için
 \makeatletter
 \newcommand{\AtBeginShipoutClear}{\gdef\AtBegShi@Hook{}}
 \makeatother
-\usepackage{glossaries}
+\usepackage{pdfpages}
+\usepackage{tikz}
 \bibliography{kaynakca.bib}		% Kaynakça dosyası için Bunu Zotero, Mendeley, Endnote ya da CiteU gibi bir programla oluşturmanızı tavsiye ederim. Zotero hakkında bilgi http://makina.gmay.me/Bulutta/ adresindeki ekitapta mevcut.
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize\ttfamily,
+    breakatwhitespace=true,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstset{style=mystyle}
 
 
 %%%%%%%KISALTMALAR%%%%%%%%%%%%%%%%%%%
@@ -23,19 +52,26 @@
 }
 %
 %
-%\printglossaries
-
 \newacronym{OBEB}{OBEB}{Ortak Katların En Büyüğü}
 
 \newacronym{AMBA}{AMBA}{Advanced Microcontroller Bus Architecture}
 \newacronym{MEM-AP}{MEM-AP}{Memory Access Port}
 \newacronym{DAP}{DAP}{Debug Access Port}
 \newacronym{AP}{AP}{Access Port}
+\newacronym{CSV}{CSV}{Comma Separated Values}
 \newacronym{DP}{DP}{Debug Port}
-
+\newacronym{LSB}{LSB}{Least Significant Bit}
+\newacronym{I2C}{I2C}{Inter-Integreted Circuit}
+\newacronym{ADC}{ADC}{Analog Digital Converter}
+\newacronym{MCU}{MCU}{Micro Controller Unit}
+\newacronym{SDK}{SDK}{Software Development Kit}
+\newacronym{ICSP}{ICSP}{In Circuit-System Programming}
+\newacronym{IDE}{IDE}{Integrated Development Environment}
+\newacronym{SPI}{SPI}{Serial Perhiphal Interface}
 \newacronym{SWD}{SWD}{Serial Write Debug}
+\newacronym{HTML}{HTML}{Hyper Text Markup Language}
+\newacronym{JS}{JS}{Java Scipt}
 \newacronym{OKEK}{OKEK}{Ortak Katların En Küçüğü}
-
 \newacronym{pi}{$\pi$}{$\pi$ sayısı}
 
 %----------------------------------------------------------------------------------------
@@ -69,7 +105,7 @@
 \end{center}
 \begin{framed}
 \begin{center}
-\textbf{GÜÇ ELEKTRONİĞİ TABANLI \\MİKROİŞLEMCİLERİN PROGRAMLANMASI\\ VE VERİ AKTARIMI} %Daha toplu olmasi icin boyle yaptim
+\textbf{GÜÇ ELEKTRONİĞİ TABANLI UYGULAMALARDA \\MİKROİŞLEMCİLERİN NETWORK ÜZERİNDEN PROGRAMLANMASI\\ VE VERİ AKTARIMI} %Daha toplu olmasi icin boyle yaptim
 \vspace{1pc}
 
 \yazar\\
@@ -90,14 +126,15 @@ Tez Danışmanı:\hspace{10mm} \danisman
 \hline
 \multicolumn{2}{|c|}{\textbf{TEZ KÜNYESİ}}      \\ \hline
 1. ARŞİV NUMARASI    & 2. SAVUNMA TARİHİ \\
-\hspace{10ex}       & \hspace{2ex}5 Eylül 2018    \\ \hline
+\hspace{10ex}       & \hspace{2ex}20 Mayıs 2019    \\ \hline
 \multicolumn{2}{|l|}{4.TEZ BAŞLIĞI}    \\
 \multicolumn{2}{|p{14cm}|}{\hspace{2ex}\tbaslik}\\ \hline
 5.YAZAR              & 6.TEZ DANIŞMANI \\
 \hspace{2ex}\yazar   & \hspace{2ex}\danisman  \\ \hline
 \multicolumn{2}{|l|}{6.ÖZET}           \\
-\multicolumn{2}{|p{14cm}|}{\hangindent=2ex\hspace{2ex}\lipsum[1]}              \\ \hline
+	\multicolumn{2}{|p{14cm}|}{\hangindent=2ex\hspace{2ex}\include{bolum/ozetT}}              \\ \hline
 7.ANAHTAR KELİMELER & 8.SAYFA SAYISI   \\
+	ESP8266, SWD, ARM, Network & 22 \\
 \hspace{10pt}             & \hspace{10pt}  \\ \hline
 \end{tabular}
 \end{table}
@@ -105,56 +142,57 @@ Tez Danışmanı:\hspace{10mm} \danisman
 \clearpage
 %----------Onay-------------------------------------
 \thispagestyle{empty}
-\begin{center}
-\large
-\textbf{\MakeUppercase{\tbaslik}}\\
-\vspace{1pc}
-\yazar\\
-\vspace{1pc}
-\teslim\\
-\vspace{2pc}
-\end{center}
-\vspace{2pc}
-\normalsize
-Bu çalışma, jürimiz tarafından Elektrik-Elektronik Mühendisliği Bölümü’nde Lisans
-Bitirme Tezi olarak kabul edilmiştir.
-
-\vspace{20mm}
-
-\noindent \textbf{Tez Danışmanı:\hspace{5ex}\danisman}
-
-\hspace{20ex}\uni
-
-\hspace{20ex}\fakulte
-
-\hspace{20ex}\bolum
-\vspace{1pc}
-
-\noindent \textbf{Üye:\hspace{15ex}\jbir}
-
-\hspace{20ex}\uni
-
-\hspace{20ex}\fakulte
-
-\hspace{20ex}\bolum
-\vspace{1ex}
-
-\noindent \textbf{Üye:\hspace{15ex}\jiki}
-
-\hspace{20ex}\uni
-
-\hspace{20ex}\fakulte
-
-\hspace{20ex}\bolum
-\vspace{1pc}
-
-\noindent \textbf{Onaylayan:\hspace{9ex}\onay}
-
-\hspace{20ex}\uni
-
-\hspace{20ex}\fakulte
-
-\hspace{20ex}\bolum
+%\begin{center}
+%\large
+%\textbf{\MakeUppercase{\tbaslik}}\\
+%\vspace{1pc}
+%\yazar\\
+%\vspace{1pc}
+%\teslim\\
+%\vspace{2pc}
+%\end{center}
+%\vspace{2pc}
+%\normalsize
+%Bu çalışma, jürimiz tarafından Elektrik-Elektronik Mühendisliği Bölümü’nde Lisans
+%Bitirme Tezi olarak kabul edilmiştir.
+%
+%\vspace{20mm}
+%
+%\noindent \textbf{Tez Danışmanı:\hspace{5ex}\danisman}
+%
+%\hspace{20ex}\uni
+%
+%\hspace{20ex}\fakulte
+%
+%\hspace{20ex}\bolum
+%\vspace{1pc}
+%
+%\noindent \textbf{Üye:\hspace{15ex}\jbir}
+%
+%\hspace{20ex}\uni
+%
+%\hspace{20ex}\fakulte
+%
+%\hspace{20ex}\bolum
+%\vspace{1ex}
+%
+%\noindent \textbf{Üye:\hspace{15ex}\jiki}
+%
+%\hspace{20ex}\uni
+%
+%\hspace{20ex}\fakulte
+%
+%\hspace{20ex}\bolum
+%\vspace{1pc}
+%
+%\noindent \textbf{Onaylayan:\hspace{9ex}\onay}
+%
+%\hspace{20ex}\uni
+%
+%\hspace{20ex}\fakulte
+%
+%\hspace{20ex}\bolum
+\includepdf{tezSon.pdf}
 \newpage
 
 
@@ -167,7 +205,6 @@ Bitirme Tezi olarak kabul edilmiştir.
 \normalsize
 
 \include{bolum/ozet}
-\include{bolum/summary}
 \include{bolum/tesekkur}
 
 \AtBeginShipout{\protect\chapter*{İÇİNDEKİLER (Devam)}}
@@ -184,9 +221,30 @@ Bitirme Tezi olarak kabul edilmiştir.
 \clearpage
 
 \clearpage
-\printglossary[style=mylong3col, type=\acronymtype, title=Simgeler ve Kısaltmalar Listesi, toctitle=SİMGELER VE KISALTMALAR LİSTESİ]
+%\printglossary[style=mylong3col, type=\acronymtype, title=Simgeler ve Kısaltmalar Listesi, toctitle=SİMGELER VE KISALTMALAR LİSTESİ]
+\textbf{SİMGELER VE KISALTMALAR LİSTESİ}
 
-\printglossary[style=mylong3col, type=\acronymtype]
+\begin{table}[h]
+\begin{tabular}{l l}
+	\textbf{AMBA:	} & Advanced Microcontroller Bus Architecture \\
+	\textbf{MEM-AP:	} & Memory Access Port \\
+	\textbf{DAP:	} & Debug Access Port \\
+	\textbf{AP:	} & Access Port \\
+	\textbf{DP:	} & Debug Port \\
+	\textbf{LSB:	} & Least Significant Bit \\
+	\textbf{I2C:	} & Inter-Integreted Circuit \\
+	\textbf{ADC:	} & Analog Digital Converter \\
+	\textbf{MCU:	} & Micro Controller Unit \\
+	\textbf{SDK:	} & Software Development Kit \\
+	\textbf{ICSP:	} & In Circuit-System Programming \\
+	\textbf{IDE:	} & Integrated Development Environment \\
+	\textbf{SPI:	} & Serial Perhiphal Interface \\
+	\textbf{SWD:	} & Serial Write Debug \\
+	\textbf{HTML:	} & Hyper Text Markup Language \\
+	\textbf{JS:	} & Java Scipt \\
+\end{tabular}
+\end{table}
+%\printglossary[style=mylong3col, type=\acronymtype]
 \clearpage
 
 
@@ -198,17 +256,33 @@ Bitirme Tezi olarak kabul edilmiştir.
 
 
 \include{bolum/giris}				% Metni dosyadan çağırmak için örnek
+\include{bolum/mcuProgramming}
+\include{bolum/used}
 \include{bolum/swd}
-%\include{bolum/bulgular}
-%\input{bolum/sonuclar}
+\include{bolum/swdImp}
+\include{bolum/html}
+\input{bolum/sonuclar}
 
 \newpage
+\begin{thebibliography}{9}
 
-\printbibliography[title={KAYNAKLAR\space DİZİNİ}] %numaralı olsun istersen optionlarda heading=bibnumbered, yaz
-\defbibheading{bibliography}[\refname]{%
-  \section*{#1}%
-  \markboth{\MakeUppercase{#1}}{\MakeUppercase{#1}}}
+\bibitem{adiv5}
+ARM.(08 August 2013) ARM Debug Interface Architecure Specification [Online]
 
-\addcontentsline{toc}{chapter}{\textbf{Özgeçmiş}}   % Sadece doktora tezleri için
+Available: https://static.docs.arm.com/ihi0031/c/IHI0031C\_debug\_interface\_as.pdf
 
+\bibitem{git}
+Micah Elizabeth Scott.(14 December 2015) esp8266-arm-swd [Online]
+
+Available: https://github.com/scanlime/esp8266-arm-swd/blob/master/\\arm\_debug.cpp
+\end{thebibliography}
+
+%\printbibliography[title={KAYNAKLAR\space DİZİNİ}] %numaralı olsun istersen optionlarda heading=bibnumbered, yaz
+%\defbibheading{bibliography}[\refname]{%
+%  \section*{#1}%
+%  \markboth{\MakeUppercase{#1}}{\MakeUppercase{#1}}}
+%
+%\addcontentsline{toc}{chapter}{\textbf{Özgeçmiş}}   % Sadece doktora tezleri için
+
+\include{bolum/ozgecmis}
 \end{document}

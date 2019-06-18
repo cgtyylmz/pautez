@@ -115,7 +115,7 @@
 \setlength{\belowcaptionskip}{\onelineskip}
 
 \addto\captionsturkish{%
-  \renewcommand{\tablename}{Çizelge}
+  \renewcommand{\tablename}{Tablo}
 }
 
 %------------Denklemler Dizini
@@ -196,6 +196,7 @@
 \renewcommand{\cftsubsectionaftersnum}{.}
 \renewcommand{\cftsubsubsectionaftersnum}{.}
 \renewcommand{\secheadstyle}{\normalfont\bfseries}
+\renewcommand{\subsecheadstyle}{\normalfont\bfseries}
 \renewcommand{\subsubsecheadstyle}{\noindent\bfseries\underline}
 
 }
@@ -208,7 +209,7 @@
 
 
 \addtocontents{lof}{\underline{\noindent\textbf{Şekil}}~\hfill\underline{\textbf{Sayfa}}\par}		% Şekil listesinin sağına Şekil soluna sayfa eklemek için
-\addtocontents{lot}{\underline{\textbf{Çizelge}}~\hfill\underline{\textbf{Sayfa}}\par}		% Şekil listesinin sağına Şekil soluna sayfa eklemek için
+\addtocontents{lot}{\underline{\textbf{Tablo}}~\hfill\underline{\textbf{Sayfa}}\par}		% Şekil listesinin sağına Şekil soluna sayfa eklemek için
 % \renewcommand*{\afterloftitle}{\thispagestyle{plain}%
 % \par\nobreak {\normalfont Figure \hfill Page}\par\nobreak}
 
@@ -279,7 +280,7 @@
 %---------ÖNEMLİ-------------
 %----TEZLE İLGİLİ Bilgileri burada giriniz.---------------------------%
 \yazarismi{Çağatay YILMAZ}						% Yazar adı, İsim ve Soyad ilk harfler Büyük
-\tezbaslik{Güç Elektroniği Tabanlı Mikroişlemcilerin Programlanması ve Veri Aktarımı} 							% Tez başlığınızı buraya giriniz
+\tezbaslik{Güç Elektroniği Tabanlı Uygulamalarda Mikrodenetleyicilerin Network Üzerinden Programlanması ve Veri Aktarımı} 							% Tez başlığınızı buraya giriniz
 %\tezbasliken{Fffffffff Ggggggggg Hhhhhhhh Jjjjjjjjj} 						% İngilizce Tez başlığınızı buraya giriniz
 \danismanismi{Doç.Dr. Selami KESLER}		% Danışman ismi
 
@@ -296,7 +297,7 @@
 
 %\bilimdali{Konstrüksiyon-İmalat}				% Bilim dalı ismi
 %\projedestek{BAP projesi ile desteklenmiştir}	% Eğer bir proje ile desteklendiyse
-\teslimtarihi{HAZİRAN 2019}						% Tez teslim ayı
+\teslimtarihi{MAYIS 2019}						% Tez teslim ayı
 \teslimtarihien{DECEMBER 2015}					% İngilizce Tez teslim ayı
 \enstitumuduru{Prof.Dr. Hürriyet ERŞAHAN}
 %------------------------------

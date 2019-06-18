@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Swd Debug</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="w3.css">
+	<script src="/script.js" type="text/javascript"></script>
+	<script src="/dataGraph.js" type="text/javascript"></script>
+</head>
+<body>
+	<center>
+<!--===============================Buttons================================-->
+		<div class="w3-card-2">
+			<header class="w3-container w3-teal">
+				<h1>SWD Read/Write Data & Debug</h1>
+			</header>
+			<br>
+			<p>
+				<button class="w3-button w3-xlarge w3-ripple w3-teal" onclick="debug('Status', '/api/begin')">Begin</button>
+				<button class="w3-button w3-xlarge w3-ripple w3-teal" onclick="debug('Status', 'api/halt' )">Debug Halt</button><br>
+			</p>
+				<button class="w3-button w3-xlarge w3-ripple w3-teal" onclick="debug('Status', 'memWrite?addr=0xe000edf0&data=0xa05f0001')">Run</button>
+				<button class="w3-button w3-xlarge w3-ripple w3-teal" onclick="debug('Status', 'memWrite?addr=0xe000edf0&data=0xa05f0003')">Stop</button><br>
+			<p>
+				<button class="w3-button w3-xlarge w3-ripple w3-teal" onclick="debug('Status', 'memWrite?addr=0xE000ED0C&data=0x05fa0004')">Reset</button><br><br>
+				<span class="w3-sand" id="Status" type="text" style="visibility:hidden;">test</span><br>
+			</p>
+			
+		</div>
+<!--=============================Write Data===============================-->
+		<div class="w3-card-4">
+			<div class="w3-container w3-lime">
+				<h2>Write Data</h2>
+			</div>
+			<p>      
+				<label class="w3-text-brown"><b>Register Adress</b></label>
+				<input class="w3-input w3-border w3-sand" id="writeAddr" type="text" size="20"></p>
+			<p>
+				<label class="w3-text-brown"><b>Data</b></label>
+				<input class="w3-input w3-border w3-hover-indigo w3-sand" id="writeData" type="text"></p>
+			<p>
+				<button class="w3-btn w3-lime" onclick="writeData('wStatus')">Write</button><br>
+				<span class="w3-sand" id="wStatus" type="text" style="visibility:hidden;">test</span><br><br>
+			</p>
+		</div>
+<!--=============================Read Data===================================-->
+		<div class="w3-card-4">
+			<div class="w3-container w3-indigo">
+				<h2>Read Data</h2>
+			</div>
+			<p>      
+				<label class="w3-text-brown"><b>Adress</b></label>
+				<input class="w3-input w3-border w3-sand" type="text" id="readAddr" size="20"></p>
+			<p>      
+				<label class="w3-text-brown"><b>|Readed Data|</b></label><br>
+				<span class="w3-sand" id="readData" type="text"></span></p>
+			<p>
+				<button class="w3-btn w3-indigo" onclick="readData()" >Read</button><br><br></p>
+		</div>
+<!--==============================DP Write==================================-->
+		<div class="w3-card-4">
+			<div class="w3-container w3-blue">
+				<h2>Debug Port Write</h2>
+			</div>
+			<p>      
+				<label class="w3-text-brown"><b>Register Adress</b></label>
+				<input class="w3-input w3-border w3-sand" id="writeDpAddr" type="text" size="20"></p>
+			<p>      
+				<label class="w3-text-brown"><b>Data</b></label>
+				<input class="w3-input w3-border w3-sand" id="writeDpData" type="text"></p>
+			<p>
+				<button class="w3-btn w3-blue" onclick="writeDp()" >Write to DP</button><br><br></p>
+			</div>
+<!--==============================Ap Write=================================-->
+		<div class="w3-card-4">
+			<div class="w3-container w3-pink">
+				<h2>Access Port Write</h2>
+			</div>
+			<p>      
+				<label class="w3-text-brown"><b>Register Adress</b></label>
+				<input class="w3-input w3-border w3-sand" id="writeApAddr" type="text" size="20"></p>
+			<p>      
+				<label class="w3-text-brown"><b>Data</b></label>
+				<input class="w3-input w3-border w3-sand" id="writeApData" type="text"></p>
+			<p>
+				<button class="w3-btn w3-pink" onclick="writeAp()" >Write to AP</button><br><br></p>
+			</div>
+<!--========================================================================-->
+	</center>
+</body>
+</html>

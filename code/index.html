@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<link rel="stylesheet" href="w3.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="script.js" type="text/javascript"></script>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script src="dataGraph.js" type="text/javascript"></script>    
+		<script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+  		<script src = "sGraph.js" type="text/javascript"></script>		
+	</head>
+	<body onload="pager('/home')">
+
+		<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+			<button class="w3-bar-item w3-button w3-large"
+			onclick="w3_close()">Close &times;</button>
+			<button class="w3-bar-item w3-button" onclick="pager('/home')">Home</button>
+			<button class="w3-bar-item w3-button" onclick="pager('/programmer.html')">Programmer</button>
+			<button class="w3-bar-item w3-button" onclick="pager('/swdDebug.html')">Swd Debug</button>
+			<button class="w3-bar-item w3-button" onclick="pager('/fileManager.html')">File Manager</button>
+			<button class="w3-bar-item w3-button" onclick="pager('/graph.html')">Serial Data Logger</button>
+			<button class="w3-bar-item w3-button" onclick="pager('/sramGraph.html')">Graph</button>
+
+		</div>
+
+		<div id="main">
+			<div class="w3-teal">
+				<button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>ARM DEBUGER & PROGRAMMER
+			</div>
+			<center>
+				<div id="content_baslik"></div>
+			</center>
+		</div>
+	</body>
+</html>

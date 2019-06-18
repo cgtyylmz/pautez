@@ -1,0 +1,23 @@
+<html>
+<head>
+		<script src="/script.js" type="text/javascript"></script>
+
+</head>
+<body>
+	<center>
+		<form action='/upload' method='post' enctype='multipart/form-data'>
+		<input class='buttons' type='file' name='fupload' id = 'fupload' value=''>
+			<br>
+		<button class='buttons' style='width:10%' onclick="upload()">Upload File</button>
+		</form>
+		<br><br>
+
+		<button onclick="reset()">Reset</button>
+		<br><br>
+		StatusFlash : <div id="statusFlash">Unknow</div> 
+		<button onclick="flash()">Flash!</button> 
+		<br><br>
+		<button onclick="erase()">Erase!</button>
+	</center>
+</body>
+</html>
